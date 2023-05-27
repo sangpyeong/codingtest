@@ -11,7 +11,7 @@ def solution(n, build_frame):
             if build_frame[2] ==0:#기둥
                 data[build_frame[0]][build_frame[1]] = build_frame[2]
             else:#보
-                data
+                data[0]=0
 
         data[build_frame[0]][build_frame[1]] = build_frame[2]
 
