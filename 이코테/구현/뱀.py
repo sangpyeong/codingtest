@@ -54,7 +54,6 @@ for i in range(L):
     elif c == 'D':
         d = (d+1) % 4
 
-
 print(count)
 
 #정답
