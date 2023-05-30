@@ -1,5 +1,5 @@
-#시간초과, 오류 남
-#어려움 잘 모르겠음
+#시간초과, 오류 남, -1인 경우 처리
+#길이를 두배로 늘려서 원 처리를 대신함, 변수들이 깔끔함, 정리를 잘하고 코딩해야겠음, 
 
 import itertools
 
@@ -10,7 +10,7 @@ def check(data):
     return True
 
 def solution(n, weak, dist):
-    answer = 0
+    answer = -1
     #순열 만듦
     npr =[]
     for i in range(1,len(dist)+1):
@@ -115,3 +115,35 @@ def solution(n, weak, dist):
     if answer > len(dist):
         return -1
     return answer
+
+solution(12	,[1, 5, 6, 10]	,[1, 2, 3, 4])
+
+
+
+
+
+from collections import deque
+
+def solution(n, weak, dist):
+    dist.sort(reverse=True)
+    q = deque([weak])
+    visited = set()
+    visited.add(tuple(weak))
+    for i in range(len(dist)):
+        d = dist[i]
+        for _ in range(len(q)):
+            current = q.popleft()
+            for p in current:
+                l = p
+                r = (p + d) % n
+                if l < r:
+                    temp = tuple(filter(lambda x: x < l or x > r, current))
+                else:
+                    temp = tuple(filter(lambda x: x < l and x > r, current))
+
+                if len(temp) == 0:
+                    return (i + 1)
+                elif temp not in visited:
+                    visited.add(temp)
+                    q.append(list(temp))
+    return -1
