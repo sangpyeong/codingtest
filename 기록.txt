@@ -1,2 +1,13 @@
-요약 정리된 곳
+
+
+
+이코테 요약 정리된 곳
 https://freedeveloper.tistory.com/271
+
+global 사용법
+https://sikaleo.tistory.com/99
+
+순열, 조합 구현
+https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations
+
+
