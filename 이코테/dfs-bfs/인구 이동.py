@@ -1,4 +1,5 @@
 #[]이거 씌우는거 생각, 버리기 trunc, 복습이 필요함
+
 from math import trunc
 from collections import deque
 
