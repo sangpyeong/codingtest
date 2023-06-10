@@ -1,7 +1,6 @@
 #시간초과, 생각한 방법은 같음, 나는 조합을 썻지만 정답은 재귀함수 안에 반복문으로 해결
 #조합이 필요하다고 생각하면 재귀함수에 반복문 사용해서 풀기
 
-
 from itertools import combinations
 from collections import deque
 
