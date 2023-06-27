@@ -18,3 +18,10 @@ https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations
     x_min = min(xs)
     x_max = max(xs)
 
+6/27
+다리를 지나는 트럭
+- 문제를 잘못 이해해서 틀림
+- 문제를 정확하게 파악하고 풀자
+
+우박수열 정적분
+- 주석으로 파악하기 쉽게 구분해놓고 풀자
