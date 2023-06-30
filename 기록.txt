@@ -13,7 +13,7 @@ https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations
 
 가장 큰, 작은 값 구하기 
 - 리스트에 값들 다 넣고 max, min 사용
-- 예시) 
+- 예시 
     xs = [p[0] for p in points]
     x_min = min(xs)
     x_max = max(xs)
@@ -25,3 +25,16 @@ https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations
 
 우박수열 정적분
 - 주석으로 파악하기 쉽게 구분해놓고 풀자
+
+6/30
+롤케이크 자르기
+- 처음에 빅오 생각
+- 시간초과 발생할 경우 바뀌는 것만 집중적으로 축소시키자
+- 예시
+    어디서 자르는 지만 바뀐다. -> 자르는 곳 원소 하나만으로 해결
+
+2 x n 타일링
+- 문제에서 1000000007으로 나눈 나머지를 return해달라고 
+  했는데 문제 제대로 안읽음
+
+
