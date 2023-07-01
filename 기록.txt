@@ -36,5 +36,16 @@ https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations
 2 x n 타일링
 - 문제에서 1000000007으로 나눈 나머지를 return해달라고 
   했는데 문제 제대로 안읽음
+- 이전 과정과 관련돼서 해결함
+
+7/1
+방문 길이
+- 2차원 배열로 풀어서 복잡해서 실수하고 오타나서 오래걸림
+- 오타 확인하자
+
+프로세스
+- 문제를 제대로 안읽음
+- 문제를 정확하게 파악하자
+
 
 
