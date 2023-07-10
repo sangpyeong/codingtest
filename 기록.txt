@@ -73,3 +73,9 @@ https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations
   from collections import Counter
   els = Counter(a)
   for k in els.keys():
+
+7/10
+합승 택시 요금
+- 다익스트라, 플로이드와샬 
+- heapq사용법
+- 제출시 오류 한두개 발생한 경우 최대값 설정 확인, 이 문제에서 왜 최대값 오류 발생했는지는 모르겠음
