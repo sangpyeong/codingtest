@@ -96,3 +96,14 @@ https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations
 - 포화이진트리로 만들기 위해 2**n - 1로 가장 작은 길이 구함
 - 재귀를 통해 루트노드를 탐색하면서 부모노드가 더미노드 자식노드가 더미노드 아닌 경우를 찾음
 - 포화이진트리 특성 활용, 트리의 특성 활용, 재귀
+
+7/21
+- 동적계획법 문제
+1) DP로 풀 수 있는 문제인지 확인한다.
+2) 문제의 변수 파악
+3) 변수 간 관계식 만들기(점화식)
+4) 메모하기(memoization or tabulation)
+5) 기저 상태 파악하기
+6) 구현하기
+- 참고 사이트
+https://hongjw1938.tistory.com/47
