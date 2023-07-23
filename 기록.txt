@@ -107,3 +107,9 @@ https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations
 6) 구현하기
 - 참고 사이트
 https://hongjw1938.tistory.com/47
+
+7/23 
+디스크 컨트롤러
+- 처음에 시간을 0초부터 1씩 증가하려다가 시간초과 발생할거 같아서 jobs의 인덱스를 기준으로 하였다.
+- heapq사용함
+- 예외 경우인 특정 작업을 끝냈는데 힙큐에 작업이 없는 경우 처리해야함
