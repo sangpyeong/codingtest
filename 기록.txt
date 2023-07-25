@@ -120,6 +120,8 @@ https://hongjw1938.tistory.com/47
 - visited = set() 방문한 것은 set으로 표시하는게 좋음
 - if not -1 < ax < N or not -1 < ay < N or board[ay][ax] == 1: not을 이용해서 조건식을 줄일 수 있음
 - for i in [-1, 1] : 반복문을 원하는 리스트를 넣어 실행할 수 있음
+- [:]이거도 얕은 복사임 https://blockdmask.tistory.com/576
+- 전역변수를 수정할 때는 global 필요 https://www.infoking.site/64
 - 풀이 방법: bfs 활용, 회전을 처리하는 방법
 
         
