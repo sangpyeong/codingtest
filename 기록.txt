@@ -109,7 +109,17 @@ https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations
 https://hongjw1938.tistory.com/47
 
 7/23 
-디스크 컨트롤러
+디스크 컨트롤러(o)
 - 처음에 시간을 0초부터 1씩 증가하려다가 시간초과 발생할거 같아서 jobs의 인덱스를 기준으로 하였다.
 - heapq사용함
 - 예외 경우인 특정 작업을 끝냈는데 힙큐에 작업이 없는 경우 처리해야함
+
+7/25
+블록 이동하기(x)
+- MAX = float('inf') 양의 무한대를 의미함
+- visited = set() 방문한 것은 set으로 표시하는게 좋음
+- if not -1 < ax < N or not -1 < ay < N or board[ay][ax] == 1: not을 이용해서 조건식을 줄일 수 있음
+- for i in [-1, 1] : 반복문을 원하는 리스트를 넣어 실행할 수 있음
+- 풀이 방법: bfs 활용, 회전을 처리하는 방법
+
+        
