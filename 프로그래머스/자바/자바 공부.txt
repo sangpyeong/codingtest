@@ -1,0 +1,81 @@
+자바 공부
+- 처음에 일단 import java.util.*; 이거 하자
+- 배열 출력 방법: 1차 System.out.println(Arrays.toString(arr));
+                 2차 System.out.println(Arrays.deepToString(arr));
+- 배열은 크기 고정, 배열 원소 추가하는 법: 
+    arr = Arrays.copyOf(arr, arr.length + 1);
+    arr[arr.length] = element;
+- 배열 정렬하는 법:
+    Arrays.sort(arr, new Comparator<T>(){
+        @Override
+        public int compare(T t1, T t2){
+            if(t1.y == t2.y) return t1.x - t2.x;
+            else return t2.y - t1.y;
+        }
+    })
+- 이진트리 만드는 법(예시):
+    public class Node {
+        int x;
+        int y;
+        int value;
+        Node left;
+        Node right;
+        
+        public Node(int x, int y, int value, Node left, Node right) {
+            this.x = x;
+            this.y = y;
+            this.value = value;
+            this.left = left;
+            this.right = right;
+        }
+    }
+    public void insertNode(Node parent, Node child) {
+        if(parent.x > child.x) {
+            if(parent.left == null) parent.left = child;
+            else insertNode(parent.left, child);
+        } else {
+            if(parent.right == null) parent.right = child;
+            else insertNode(parent.right, child);
+        }
+    }
+- 전위, 후위 순회 방법(예시):
+    public void preorder(Node root) {
+        if(root != null) {
+            result[0][idx++] = root.value;
+            preorder(root.left);
+            preorder(root.right);
+        }
+    }
+    public void postorder(Node root) {
+        if(root != null) {
+            postorder(root.left);
+            postorder(root.right);
+            result[1][idx++] = root.value;
+        }
+    }
+- 문자열 자르기 방법: String[] splitOther = operation.split(" ");
+- 우선순위 큐 사용 방법: 
+    import java.util.PriorityQueue;
+    import java.util.PriorityQueue;
+
+    PriorityQueue<Integer> priorityQueueWithMax = new PriorityQueue<>(Comparator.reverseOrder());
+    PriorityQueue<Integer> priorityQueueWithMin = new PriorityQueue<>();
+    
+    priorityQueueWithMax.add(Integer.parseInt(splitOther[1]));
+    priorityQueueWithMax.remove(max);
+    answer[0] = priorityQueueWithMax.peek();
+- static 변수를 전역 변수처럼 활용:
+    static ArrayList<Integer>[] childs;
+	static int[] Info;
+	static int maxSheepCnt = 0;
+- 리스트에 리스트 원소들 추가: list.addAll(nextPos);
+- 큐 사용법:
+    Queue<Integer> queue = new LinkedList<>();
+    queue.add(start);
+    while (!queue.isEmpty())
+    int current = queue.poll();
+- 정수형 배열 초기화시 자동으로 0이 채워짐: int[] arr = new int[4];
+- bfs에서 좌표인 경우 visited를 1씩 증가하면서 해를 구하는 방법:
+    visited[0][0] = 1;
+    visited[nx][ny] = visited[x][y] + 1;
+- queue에 리스트 넣는 방법: queue.add(new int[]{0, 0});
