@@ -145,3 +145,10 @@
     List<String> list = Arrays.asList(array);
 - 리스트를 배열로 변환:
     String[] array = list.toArray(new String[0]);
+- 스택 관련 함수:
+    Stack<Integer> stack = new Stack<>();
+    stack.push(1);
+    int top = stack.pop();
+    int top = stack.peek();
+    boolean isEmpty = stack.empty();
+    int position = stack.search(2);
