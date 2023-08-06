@@ -79,3 +79,69 @@
     visited[0][0] = 1;
     visited[nx][ny] = visited[x][y] + 1;
 - queue에 리스트 넣는 방법: queue.add(new int[]{0, 0});
+- 문자열 비교는 str1.equals(str2);
+- 배열에서 값을 통해 인덱스 구하는 방법:
+    int index = Arrays.asList(arr).indexOf(value);
+- 문자열에서 인덱스로 값 찾는 방법:
+    char c = str.charAt(index);
+- hashset을 통해 중복 제거하는 법:
+    HashSet<Integer> numsSet = new HashSet<>();
+- 문자열이 다른 문자열로 시작하는지 확인하는 법:
+    str1.startWith(str2);
+- HashMap 선언 방법: 
+    Map<String, Integer> map = new HashMap<>();
+- HashMap 관련 함수:
+    map.put("apple", 3);
+    int count = map.get("apple");
+    boolean hasBanana = map.containsKey("banana");
+    map.remove("apple");
+    int size = map.size();
+    boolean empty = map.isEmpty();
+    Set<String> keys = map.keySet();
+    Collection<Integer> values = map.values();
+    Set<Map.Entry<String, Integer>> entries = map.entrySet();
+- HashMap 활용 (문자열, 리스트) :
+    Map<String, List<String>> clothesMap = new HashMap<>();
+    clothesMap.putIfAbsent(part, new ArrayList<>());
+    clothesMap.get(part).add(type);
+- HashMap은 하나의 키에 하나의 값을 매핑하는 자료구조
+- hashmap 반복문 활용:
+     for (Map.Entry<String, List<String>> entry : clothesMap.entrySet()) {
+        answer *= (entry.getValue().size() + 1);
+    }
+
+    Iterator<Integer> it = map.values().iterator();
+    int answer = 1;
+    
+    while(it.hasNext())
+        answer *= it.next().intValue() + 1;
+- set 관련 함수:
+    fruits.add("apple");
+    fruits.remove("apple");
+    boolean hasBanana = fruits.contains("banana");
+    boolean empty = fruits.isEmpty();
+    int size = fruits.size();
+    Iterator<String> iterator = fruits.iterator();
+    while (iterator.hasNext()) {
+        String fruit = iterator.next();
+        // 처리
+    }
+    Set<String> moreFruits = new HashSet<>();
+    moreFruits.add("orange");
+    moreFruits.add("grape");
+    fruits.addAll(moreFruits);
+    fruits.clear();
+    Object[] fruitArray = fruits.toArray();
+    String[] fruitArray = fruits.toArray(new String[0]);
+- iterator 관련 함수:
+    Iterator<String> iterator = set.iterator();
+    while (iterator.hasNext()) {
+        String element = iterator.next();
+        if (shouldRemoveElement(element)) {
+            iterator.remove();
+        }
+    }
+- 배열을 리스트로 변환:
+    List<String> list = Arrays.asList(array);
+- 리스트를 배열로 변환:
+    String[] array = list.toArray(new String[0]);
