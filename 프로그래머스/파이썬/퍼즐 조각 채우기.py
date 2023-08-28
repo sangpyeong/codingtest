@@ -101,3 +101,69 @@ def solution(game_board, table):
     answer = dfs(piece_list, game_board)
 
     return answer
+
+
+# 내가 짠거 실패함
+# from collections import deque
+# import copy
+
+# def solution(game_board, table):
+#     answer = -1
+#     #
+#     length = len(game_board)
+#     dx = [-1, 0, 1, 0]
+#     dy = [0, 1, 0, -1]
+#     q = deque()
+#     pieces = []
+#     for i in range(length):
+#         for j in range(length):
+#             if table[i][j] == 1:
+#                 x, y = i, j
+#                 q.append([x, y])
+#                 table[x][y] = 0
+#                 piece = []
+#                 while q:
+#                     tx, ty = q.popleft()
+#                     piece.append([tx - x, ty - y])
+#                     for k in range(4):
+#                         nx, ny = tx + dx[k], ty + dy[k]
+
+#                         if 0 <= nx < length and 0 <= ny < length and table[nx][ny] == 1:
+#                             q.append([nx, ny])
+#                             table[nx][ny] = 0
+#                 pieces.append(piece)
+#     print(pieces)
+
+#     rotated_pieces = []
+#     for i in range(len(pieces)):
+#         for k in range(4):
+#             tmp_pieces = copy.deepcopy(pieces[i])
+#             rotated_pieces.append(tmp_pieces)
+#             for j in range(len(pieces[i])):
+#                 tmp = pieces[i][j][0]
+#                 pieces[i][j][0] = pieces[i][j][1]
+#                 pieces[i][j][1] = -tmp
+
+#     print(rotated_pieces)
+
+#     visited = [[False] * length for _ in range(length)]
+#     for i in range(length):
+#         for j in range(lenght):
+#             if game_board[i][j] == 0:
+#                 x, y = i, j
+#                 q.append([x, y])
+#                 visited[x][y] = True
+#                 piece = []
+#                 while q:
+#                     tx, ty = q.popleft()
+#                     piece.append([tx - x, ty - y])
+#                     for k in range(4):
+#                         nx, ny = tx + dx[k], ty + dy[k]
+
+#                         if 0 <= nx < length and 0 <= ny < length and visited[nx][ny] == False and game_board[nx][ny] == 0:
+#                             q.append([nx, ny])
+#                             visited[nx][ny] = True
+#                 piece
+
+
+#     return answer
