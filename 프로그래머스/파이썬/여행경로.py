@@ -3,7 +3,6 @@ def solution(tickets):
     goal = len(tickets) + 1
     ch = [0] * len(tickets)
 
-
     def dfs(path):
         if len(path) == goal:
             answer.append(path)
