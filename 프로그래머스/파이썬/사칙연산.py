@@ -47,3 +47,38 @@ def solution(arr):
             m[(i, j)] = min(mincandidates)
 
     return M[(0, len(nums) - 1)]
+
+
+def solution(arr):
+    nums = [int(i) for i in arr[0::2]]
+    ops = [i for i in arr[1::2]]
+
+    dp_max = {}
+    dp_min = {}
+    for i in range(len(nums)):
+        dp_max[(i, i)] = nums[i]
+        dp_min[(i, i)] = nums[i]
+
+    for d in range(1, len(nums)):
+        for i in range(len(nums)):
+            j = i + d
+            if j >= len(nums):
+                continue
+
+            max_candidate = []
+            min_candidate = []
+            for k in range(i+1, j+1):
+                if ops[k-1] == "-":
+                    mx = dp_max[(i, k-1)] - dp_min[(k, j)]
+                    mn = dp_min[(i, k-1)] - dp_max[(k, j)]
+                    max_candidate.append(mx)
+                    min_candidate.append(mn)
+                else:
+                    mx = dp_max[(i, k-1)] + dp_max[(k, j)]
+                    mn = dp_min[(i, k-1)] + dp_min[(k, j)]
+                    max_candidate.append(mx)
+                    min_candidate.append(mn)
+            dp_max[(i, j)] = max(max_candidate)
+            dp_min[(i, j)] = min(min_candidate)
+
+    return dp_max[(0, len(nums)-1)]
