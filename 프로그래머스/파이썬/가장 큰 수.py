@@ -1,10 +1,8 @@
 def solution(numbers):
     answer = ''
 
-    numbers = list(map(str, numbers))
-    numbers.sort(key=lambda x: x*3, reverse=True)
+    numbers = [str(s) for s in numbers]
+    numbers.sort(key=lambda x: (x*4)[:4], reverse=True)
 
-    for i in numbers:
-        answer += i
-
-    return str(int(answer))
+    answer = ''.join(numbers) if numbers[0] != '0' else "0"
+    return answer
