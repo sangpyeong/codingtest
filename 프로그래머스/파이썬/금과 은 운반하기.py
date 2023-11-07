@@ -33,9 +33,8 @@ def solution(a, b, g, s, w, t):
                                  now_weight) else move_cnt * now_weight
             silver += now_silver if (now_silver < move_cnt *
                                      now_weight) else move_cnt * now_weight
-            total += now_gold + \
-                now_silver if (now_gold + now_silver < move_cnt *
-                               now_weight) else move_cnt * now_weight
+            total += now_gold + now_silver if (now_gold + now_silver < move_cnt *
+                                               now_weight) else move_cnt * now_weight
 
         if gold >= a and silver >= b and total >= a + b:
             end = mid - 1
