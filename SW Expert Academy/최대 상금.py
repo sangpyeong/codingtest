@@ -6,7 +6,6 @@ for tc in range(1,int(input())+1):
     nxt = set()
     for _ in range(K):
         while now:
-            print(now)
             s = now.pop()
             s = list(s)
             for i in range(N):

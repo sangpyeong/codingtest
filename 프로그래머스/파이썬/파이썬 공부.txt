@@ -136,7 +136,7 @@ https://hongjw1938.tistory.com/47
 - 아직 완변한 이해x, 윗줄부터 다음줄까지 0을 만들면서 내려가서 해결하는 방식
 
 8/2
-연습 경로
+여행 경로
 - dfs문제, 그래프를 굳이 만들 필요없이 백트래킹 함께 사용함
 - 언팩 기능: dfs([*path, end]) *
 - enumerate 기능: for i, [start, end] in enumerate(tickets):
