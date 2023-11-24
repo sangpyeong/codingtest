@@ -93,6 +93,7 @@ https://hongjw1938.tistory.com/47
 - 전역변수를 수정할 때는 global 필요 https://www.infoking.site/64
 - 풀이 방법: bfs 활용, 회전을 처리하는 방법
 
+
 7/26
 삼각 달팽이
 - arr.insert() 리스트 인덱스에 추가
