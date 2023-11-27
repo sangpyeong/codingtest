@@ -14,17 +14,13 @@ def dfs(node, edge_dict, dp):
     if not edge_dict[node]:
         return
 
-    cnt, zero_cnt, min_val, min_diff = 0, 0, 0, float('inf')
+    min_val, min_diff = 0, float('inf')
     for leaf in edge_dict[node]:
         dfs(leaf, edge_dict, dp)
         min_val += min(dp[leaf])
-        cnt += 1
-        if dp[leaf][0] < dp[leaf][1]:
-            zero_cnt += 1
-            min_diff = min(min_diff, dp[leaf][1] - dp[leaf][0])
-
+        min_diff = min(min_diff, dp[leaf][1] - dp[leaf][0])
+    dp[node][0] += min_val + min_diff if min_diff >= 0 else min_val
     dp[node][1] += min_val
-    dp[node][0] += min_val + min_diff if cnt == zero_cnt else min_val
 
 
 def solution(sales, links):
