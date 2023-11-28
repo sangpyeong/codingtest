@@ -22,11 +22,6 @@ https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations
 우박수열 정적분
 - 주석으로 파악하기 쉽게 구분해놓고 풀자
 
-7/1
-방문 길이
-- 2차원 배열로 풀어서 복잡해서 실수하고 오타나서 오래걸림
-- 오타 확인하자
-
 프로세스
 - 문제를 제대로 안읽음
 - 문제를 정확하게 파악하자
@@ -321,15 +316,6 @@ https://hongjw1938.tistory.com/47
 - 구현문제
 - 알게 된 것:
   for-else구문: break가 발생안하고 끝나는 경우 else문 실행
-
-배달
-- 다익스트라 문제 
-- 나는 bfs로 다익스트라처럼 풀었음, 정답이 더 효율적임
-- 알게 된 것:
-  from queue import PriorityQueue: 우선순위 큐
-  queue.put([src, next_cost])
-  current, current_cost = queue.get() : 우선순위 큐 넣고 빼고
-  다익스트라 순서
 
 세 소수의 합
 - 소수 판별 문제
