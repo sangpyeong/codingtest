@@ -78,16 +78,6 @@ https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations
 https://hongjw1938.tistory.com/47
 ㄴ
 
-7/25
-블록 이동하기(x)
-- MAX = float('inf') 양의 무한대를 의미함
-- visited = set() 방문한 것은 set으로 표시하는게 좋음
-- if not -1 < ax < N or not -1 < ay < N or board[ay][ax] == 1: not을 이용해서 조건식을 줄일 수 있음
-- for i in [-1, 1] : 반복문을 원하는 리스트를 넣어 실행할 수 있음
-- [:]이거도 얕은 복사임 https://blockdmask.tistory.com/576
-- 전역변수를 수정할 때는 global 필요 https://www.infoking.site/64
-- 풀이 방법: bfs 활용, 회전을 처리하는 방법
-
 
 7/26
 삼각 달팽이
@@ -159,16 +149,6 @@ https://hongjw1938.tistory.com/47
   백트래킹안에 반복문은 필수가 아님 
   카탈란 수열
 
-10/9
-사라지는 발판
-- dfs문제
-- 나는 처음에 dp로 풀려고 했는데 풀다보니 bfs로 풀고 있었고 bfs로 구하는 방법은 예외의 경우가 생겨서 실패
-- 답 보니까 dfs로 풀고 함수들을 사용해서 간단하게 풀음
-- 알고리즘:
-  일단 dfs를 써서 게임이 끝나는 경우를 찾음 
-  위 경우에서 전 턴에서 자기가 이기는지 지는지 찾고 이긴다면 최소 턴을 반환 진다면 최대 턴을 반환함 
-  이거를 반복해서 답을 구함
-- 솔직히 이해가 잘 안됨, 재귀가 진짜 어려운거 같음 재귀 문제를 많이 풀어서 재귀를 통해 푸는 방법을 익혀야함
 
 10/10
 

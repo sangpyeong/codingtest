@@ -1,61 +1,58 @@
-dy = [-1, 1, 0, 0]
 dx = [0, 0, -1, 1]
-INF = 987654321
+dy = [-1, 1, 0, 0]
+n, m = 0, 0
+
+
+def OOB(x, y):
+    return x < 0 or x >= n or y < 0 or y >= m
+
+
+vis = [[0]*5 for _ in range(5)]
+block = [[0]*5 for _ in range(5)]
+
+# 현재 상태에서 둘 다 최적의 플레이를 할 때 남은 이동 횟수
+# 반환 값이 짝수 : 플레이어가 패배함을 의미, 홀수 : 플레이어가 승리함을 의미
+# curx, cury : 현재 플레이어의 좌표, opx, opy : 상대 플레이어의 좌표
+
+
+def solve(curx, cury, opx, opy):
+    global vis, block
+    # 플레이어가 밟고 있는 발판이 사라졌다면
+    if vis[curx][cury]:
+        return 0
+    ret = 0
+    # 플레이어를 네 방향으로 이동시켜 다음 단계로 진행할 예정
+    for dir in range(4):
+        nx = curx + dx[dir]
+        ny = cury + dy[dir]
+        if OOB(nx, ny) or vis[nx][ny] or block[nx][ny] == 0:
+            continue
+        vis[curx][cury] = 1
+
+        # 플레이어를 dir 방향으로 이동시켰을 때 턴의 수
+        # 다음 함수를 호출할 때 opx, opy, nx, ny 순으로 호출해야 함에 주의
+        val = solve(opx, opy, nx, ny)+1
+
+        # 방문 표시 해제
+        vis[curx][cury] = 0
+
+        # 1. 현재 저장된 턴은 패배인데 새로 계산된 턴은 승리인 경우
+        if ret % 2 == 0 and val % 2 == 1:
+            ret = val  # 바로 갱신
+        # 2. 현재 저장된 턴과 새로 계산된 턴이 모두 패배인 경우
+        elif ret % 2 == 0 and val % 2 == 0:
+            ret = max(ret, val)  # 최대한 늦게 지는걸 선택
+        # 3. 현재 저장된 턴과 새로 계산된 턴이 모두 승리인 경우
+        elif ret % 2 == 1 and val % 2 == 1:
+            ret = min(ret, val)  # 최대한 빨리 이기는걸 선택
+    return ret
 
 
 def solution(board, aloc, bloc):
-    return solve(board, aloc[0], aloc[1], bloc[0], bloc[1])[1]
-
-
-def in_range(board, y, x):
-    if y < 0 or y >= len(board) or x < 0 or x >= len(board[0]):
-        return False
-    return True
-
-
-def is_finished(board, y, x):
-    for i in range(4):
-        ny = y + dy[i]
-        nx = x + dx[i]
-        if in_range(board, ny, nx) and board[ny][nx]:
-            return False
-    return True
-
-
-def solve(board, y1, x1, y2, x2):
-    # can_win, turn
-    if is_finished(board, y1, x1):
-        return [False, 0]
-
-    # 서로 두 위치가 같을 때 이번 턴에 움직이면 무조건 이기므로
-    if y1 == y2 and x1 == x2:
-        return [True, 1]
-
-    min_turn = INF
-    max_turn = 0
-    can_win = False
-
-    # dfs
-    for i in range(4):
-        ny = y1 + dy[i]
-        nx = x1 + dx[i]
-        if not in_range(board, ny, nx) or not board[ny][nx]:
-            continue
-
-        board[y1][x1] = 0
-        result = solve(board, y2, x2, ny, nx)  # 차례가 바뀌기 때문에 위치를 바꿔준다.
-        board[y2][x2] = 1
-
-        # 이 시점에서는 result[0]이 False여야만 현재 턴에서 내가 이길 수 있다.
-        if not result[0]:
-            can_win = True
-            min_turn = min(min_turn, result[1])
-        elif not can_win:
-            max_turn = max(max_turn, result[1])
-
-    turn = min_turn if can_win else max_turn
-
-    return [can_win, turn + 1]
-
-
-solution([[1, 1, 1], [1, 1, 1], [1, 1, 1]],	[1, 0],	[1, 2])
+    global n, m
+    n = len(board)
+    m = len(board[0])
+    for i in range(n):
+        for j in range(m):
+            block[i][j] = board[i][j]
+    return solve(aloc[0], aloc[1], bloc[0], bloc[1])
