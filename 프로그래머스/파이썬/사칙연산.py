@@ -48,37 +48,46 @@ def solution(arr):
 
     return M[(0, len(nums) - 1)]
 
+# dp를 2차원 배열로 최소 최대 값 튜플을 가지고 있는 것으로 설정
+
 
 def solution(arr):
     nums = [int(i) for i in arr[0::2]]
     ops = [i for i in arr[1::2]]
+    n = len(nums)
 
-    dp_max = {}
-    dp_min = {}
-    for i in range(len(nums)):
-        dp_max[(i, i)] = nums[i]
-        dp_min[(i, i)] = nums[i]
+    # dp 배열 초기화
+    # 각 요소는 (최대값, 최소값)을 저장
+    dp = [[(0, 0) for _ in range(n)] for _ in range(n)]
 
-    for d in range(1, len(nums)):
-        for i in range(len(nums)):
+    # 대각선(자기 자신에 대한 값)은 먼저 계산
+    for i in range(n):
+        dp[i][i] = (nums[i], nums[i])
+
+    # 길이를 2부터 n까지 증가시키며 확인
+    for d in range(1, n):
+        for i in range(n - d):
             j = i + d
-            if j >= len(nums):
-                continue
+            max_value = -1e9  # 아주 작은 값으로 초기화
+            min_value = 1e9  # 아주 큰 값으로 초기화
 
-            max_candidate = []
-            min_candidate = []
-            for k in range(i+1, j+1):
-                if ops[k-1] == "-":
-                    mx = dp_max[(i, k-1)] - dp_min[(k, j)]
-                    mn = dp_min[(i, k-1)] - dp_max[(k, j)]
-                    max_candidate.append(mx)
-                    min_candidate.append(mn)
-                else:
-                    mx = dp_max[(i, k-1)] + dp_max[(k, j)]
-                    mn = dp_min[(i, k-1)] + dp_min[(k, j)]
-                    max_candidate.append(mx)
-                    min_candidate.append(mn)
-            dp_max[(i, j)] = max(max_candidate)
-            dp_min[(i, j)] = min(min_candidate)
+            # i부터 j사이의 모든 k에 대해 경우의 수를 따져보고 최대/최소 갱신
+            for k in range(i, j):
+                if ops[k] == "+":
+                    max_temp = max(dp[i][k][0] + dp[k+1][j][0],
+                                   dp[i][k][1] + dp[k+1][j][1])
+                    min_temp = min(dp[i][k][0] + dp[k+1][j][0],
+                                   dp[i][k][1] + dp[k+1][j][1])
+                else:  # ops[k] == "-"
+                    max_temp = max(dp[i][k][0] - dp[k+1][j][1],
+                                   dp[i][k][1] - dp[k+1][j][0])
+                    min_temp = min(dp[i][k][0] - dp[k+1][j][0],
+                                   dp[i][k][1] - dp[k+1][j][1])
 
-    return dp_max[(0, len(nums)-1)]
+                max_value = max(max_value, max_temp)
+                min_value = min(min_value, min_temp)
+
+            # dp 갱신
+            dp[i][j] = (max_value, min_value)
+
+    return dp[0][n-1][0]
