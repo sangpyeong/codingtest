@@ -228,15 +228,6 @@ https://hongjw1938.tistory.com/47
 - 알게 된 것:
   dic에 있는지 확인하는 방법은 if not dic[tmp]: 이 아니라 if tmp not in dic:으로 해야함 
 
-사탕 담기
-- 백트래킹, 조합 문제
-- 나는 백트래킹으로 풀려고 했는데 실패
-- 다른 풀이:
-  1. from itertools import combinations 를 통해 모든 조합을 구해서 구함
-  2. 백트래킹에서 반복문을 안쓰고 인자로 index를 받아서 처리 
-- 알게 된 것:
-  백트래킹 유형(좀 더 공부해보자)
-
 10/19 ~ 10/23
 데브코스, 감기몸살
 가장 큰 수
