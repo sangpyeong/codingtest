@@ -78,13 +78,6 @@ https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations
 https://hongjw1938.tistory.com/47
 ㄴ
 
-
-7/26
-삼각 달팽이
-- arr.insert() 리스트 인덱스에 추가
-- 2차원 배열 만드는 법
-- 다른 풀이는 2차원 배열의 좌표를 통해 간단하게 구현함
-
 7/31
 풍선 터트리기 복습
 
