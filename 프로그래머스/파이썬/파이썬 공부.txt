@@ -36,15 +36,6 @@ https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations
   먼저 i일 때 i만 바뀌는거에 집중하고 왼쪽, 오른쪽 가장 작은 값을 구하는데 
   오른쪽도 -i로 동시에 가장 작은 값들을 구해놓고 이 값들을 통해 해를 구함
 
-7/5
-스타 수열
-- 문제 파악하고 간단하게 해를 구하는 논리 찾는데 실패함 (간단하게 안하면 시간초과 발생할거 같았음)
-- 실패했으면 문제 그대로 따라가는 방법으로 풀자
-- conter 사용법 익힘
-  from collections import Counter
-  els = Counter(a)
-  for k in els.keys():
-
 7/10
 합승 택시 요금
 - 다익스트라, 플로이드와샬 
