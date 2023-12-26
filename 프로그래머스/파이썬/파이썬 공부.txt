@@ -36,6 +36,7 @@ https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations
   먼저 i일 때 i만 바뀌는거에 집중하고 왼쪽, 오른쪽 가장 작은 값을 구하는데 
   오른쪽도 -i로 동시에 가장 작은 값들을 구해놓고 이 값들을 통해 해를 구함
 
+
 7/10
 합승 택시 요금
 - 다익스트라, 플로이드와샬 
