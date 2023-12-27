@@ -26,8 +26,6 @@ https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations
 - 문제를 제대로 안읽음
 - 문제를 정확하게 파악하자
 
-7/3
-
 7/4
 풍선 터트리기
 - 문제 파악하고 해를 구하는 논리는 쉬웠음
