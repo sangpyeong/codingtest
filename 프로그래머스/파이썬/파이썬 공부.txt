@@ -17,6 +17,7 @@ https://shoark7.github.io/programming/algorithm/Permutations-and-Combinations
     x_min = min(xs)
     x_max = max(xs)
 
+
 6/27
 우박수열 정적분
 - 주석으로 파악하기 쉽게 구분해놓고 풀자
