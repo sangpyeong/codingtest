@@ -4,6 +4,7 @@ import heapq
 def solution(n, works):
     answer = 0
     hq = []
+
     for i in range(len(works)):
         heapq.heappush(hq, works[i] * (-1))
     for i in range(n):
