@@ -10,6 +10,7 @@ def impossible(result):
             if (x, y-1, COL) not in result and (x+1, y-1, COL) not in result and \
                     not ((x-1, y, ROW) in result and (x+1, y, ROW) in result):
                 return True
+
     return False
 
 
