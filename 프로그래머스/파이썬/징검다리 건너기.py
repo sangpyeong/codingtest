@@ -22,7 +22,9 @@ def solution(stones, k):
 
 def solution(stones, k):
     left = 1
+
     right = 200000000
+    
     while left <= right:
         temp = stones.copy()
         mid = (left + right) // 2
