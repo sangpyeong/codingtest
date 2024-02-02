@@ -1,46 +1,48 @@
-def solution(n, k, cmds):
-    linked_list = {i: [i - 1, i + 1] for i in range(n)}
-    table = ['O'] * n
-    delete = []
-
-    for cmd in cmds:
-        cmd = cmd.split()
-
-        if cmd[0] == 'D':
-            for _ in range(int(cmd[1])):
-                k = linked_list[k][1]
-
-        elif cmd[0] == 'U':
-            for _ in range(int(cmd[1])):
-                k = linked_list[k][0]
-
-        elif cmd[0] == 'C':
-            prev, nxt = linked_list[k]
-            table[k] = 'X'
-            delete.append((prev, k, nxt))
-
-            if nxt == n:
-                k = linked_list[k][0]
+def solution(n, k, cmd):
+    cur = k
+    table = {i: [i - 1, i + 1] for i in range(n)}
+    answer = ['O'] * n
+    table[0] = [None, 1]
+    table[n - 1] = [n - 2, None]
+    stack = []
+    for c in cmd:
+        if c == "C":
+            # 삭제
+            answer[cur] = 'X'
+            prev, next = table[cur]
+            stack.append([prev, cur, next])
+            if next == None:
+                cur = table[cur][0]
             else:
-                k = linked_list[k][1]
-
-            if prev == -1:
-                linked_list[nxt][0] = prev
-            elif nxt == n:
-                linked_list[prev][1] = nxt
+                cur = table[cur][1]
+            if prev == None:
+                table[next][0] = None
+            elif next == None:
+                table[prev][1] = None
             else:
-                linked_list[prev][1] = nxt
-                linked_list[nxt][0] = prev
+                table[prev][1] = next
+                table[next][0] = prev
+
+        elif c == "Z":
+            # 복구
+            prev, now, next = stack.pop()
+            answer[now] = 'O'
+            if prev == None:
+                table[next][0] = now
+            elif next == None:
+                table[prev][1] = now
+            else:
+                table[next][0] = now
+                table[prev][1] = now
+
         else:
-            prev, now, nxt = delete.pop()
-            table[now] = 'O'
-
-            if prev == -1:
-                linked_list[nxt][0] = now
-            elif nxt == n:
-                linked_list[prev][1] = now
+            # 커서 이동
+            c1, c2 = c.split(' ')
+            c2 = int(c2)
+            if c1 == 'D':
+                for _ in range(c2):
+                    cur = table[cur][1]
             else:
-                linked_list[prev][1] = now
-                linked_list[nxt][0] = now
-
-    return ''.join([x for x in table])
+                for _ in range(c2):
+                    cur = table[cur][0]
+    return ''.join(answer)
