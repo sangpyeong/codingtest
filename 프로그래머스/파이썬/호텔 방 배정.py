@@ -10,6 +10,7 @@ def solution(k, room_number):
         if room not in room_dict:
             room_dict[room] = room + 1
             return room
+
         empty_room = find(room_dict[room])
         room_dict[room] = empty_room + 1
         return empty_room
